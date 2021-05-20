@@ -4,6 +4,8 @@
 
 let numA, numB, total;
 
+//Functions
+
 function add(numA, numB) {
     total = (numA + numB)
     return total;
@@ -34,3 +36,4 @@ console.log(subtract(6, 4));
 console.log(multiply(4, 6));
 console.log(divide(12, 4));
 console.log(operator(2, 3));
+
