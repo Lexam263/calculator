@@ -1,0 +1,20 @@
+.body {
+    background-color: blue;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-rows: 80px 80px 80px 80px;
+    background-color: blue;
+    color: white;
+    justify-items: center;
+    align-items: center;
+    font-size:x-large;
+    grid-template-areas: 
+    "display display display display";
+}
+
