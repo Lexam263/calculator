@@ -2,7 +2,10 @@
 
 //variables
 
-let numA, numB, total;
+let numA, 
+    numB, 
+    total,
+    d7 = document.querySelector("#d7");
 
 //Functions
 
@@ -30,10 +33,13 @@ function operator(numA, numB) {
     return add(numA, numB);
 }
 
+d7.addEventListener('click', () => {
+    console.log("Button 7 works");
+});
 
-console.log(add(4, 6));
+/* console.log(add(4, 6));
 console.log(subtract(6, 4));
 console.log(multiply(4, 6));
 console.log(divide(12, 4));
-console.log(operator(2, 3));
+console.log(operator(2, 3)); */
 
