@@ -9,14 +9,14 @@
     border: none;
     border-radius: 20px;
     display: grid;
-    grid-template-columns: 80px 80px 80px 80px;
+    grid-template-columns: 80px 80px 80px 80px 80px;
     grid-template-rows: 80px 80px 80px 80px 80px;
     background-color: orange;
     color: white;
     justify-items: center;
     align-items: center;
     font-size:x-large;
-    width: 400px;
+    width: 425px;
 }
 
 .btn {

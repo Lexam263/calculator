@@ -17,6 +17,7 @@ let array1 = [],
     btnOperands = document.querySelectorAll('btnOperand'),
     element = document.getElementById('numDisplay'),
     equalPushed = '',
+    decimalPushed = '',
     clear = document.querySelector('#clear');
 //Functions
 
@@ -26,10 +27,17 @@ btnInts.forEach((btnInt) => {
     return array1 = [],
     equalPushed = 'true';
         } else {
+            if (decimalPushed === 'true') {
+                
+            }
+
+
 
         if (operand === '' || string1 === '') { 
             array1.push(btnInt.id); 
             string1 = array1.join('');
+            console.log('array1 ' + array1);
+            console.log('string1 ' + string1);
     
         if(typeof(element) != 'undefined' && element != null) {
                 display.removeChild(element);
@@ -41,7 +49,11 @@ btnInts.forEach((btnInt) => {
                 element.textContent = string1; 
                 display.appendChild(element);
             }
-            return string1;
+            if (btnInt.id === '.') {
+                return string1,
+                decimalPushed = 'true';
+            } else {
+            return string1; } 
             } else {
         array2.push(btnInt.id);
         string2 = array2.join('');
@@ -55,6 +67,7 @@ btnInts.forEach((btnInt) => {
             element.textContent = string1 + ' ' + symbol + ' ' + string2;  
             display.appendChild(element);
         }
+        console.log('btnInt ' + btnInt.id);
         return string2;
     } }
     });
@@ -101,12 +114,16 @@ equal.addEventListener('click', () => {
     num2 = parseInt(string2);
     if (operand === 'plus') {
     total = (num1 + num2);
+    console.log('num1: ' + num1 + ' ' + '+' + ' ' + 'num2: ' + num2 + ' ' + '=' + ' ' + total);
     } else if (operand === 'minus') {
-        total = (num1 - num2);
+    total = (num1 - num2);
+    console.log('num1: ' + num1 + ' ' + '-' + ' ' + 'num2: ' + num2 + ' ' + '=' + ' ' + total);
     } else if (operand === 'multiply') {
         total = (num1 * num2);
+        console.log('num1: ' + num1 + ' ' + 'x' + ' ' + 'num2: ' + num2 + ' ' + '=' + ' ' + total);
     } else if (operand === 'divide') {
         total = (num1 / num2);
+        console.log('num1: ' + num1 + ' ' + '/' + ' ' + 'num2: ' + num2 + ' ' + '=' + ' ' + total); 
     } 
     if(typeof(element) != 'undefined' && element != null) {
         display.removeChild(element);
@@ -144,3 +161,15 @@ clear.addEventListener('click', () =>
     total = 0;
     
 })
+
+
+// Notes
+/***********************************************************
+3 * 6 = 18
+3 / 18 = 6
+
+
+
+
+
+***********************************************************/
