@@ -17,28 +17,40 @@ let array1 = [],
     btnOperands = document.querySelectorAll('btnOperand'),
     element = document.getElementById('numDisplay'),
     equalPushed = '',
-    decimalPushed = '',
+    decimal1Pushed = '',
+    decimal2Pushed = '',
+    btnIntId = '',
+    symbol = '',
     clear = document.querySelector('#clear');
 //Functions
 
+
+
+//Button function for the numbers and decimal point.
 btnInts.forEach((btnInt) => {
     btnInt.addEventListener ('click', () => {
-        if (equalPushed === 'true') {
+    btnIntId = btnInt.id;
+        
+            //Checks if there is a already a total and uses it for the first number in the equation.
+if (equalPushed === 'true') {
     return array1 = [],
     equalPushed = 'true';
         } else {
-            if (decimalPushed === 'true') {
-                
-            }
 
+        //Inputs the first number of the equation.
+        if (operand === '' || string1 === '') {
 
-
-        if (operand === '' || string1 === '') { 
+            //Checks if there is already a decimal point.
+            if (btnIntId === '.' && decimal1Pushed === 'true') {
+ 
+            return string1, decimal1Pushed = 'true';
+            } else {
+            
             array1.push(btnInt.id); 
             string1 = array1.join('');
-            console.log('array1 ' + array1);
-            console.log('string1 ' + string1);
-    
+            
+            
+        //Displays the first number.
         if(typeof(element) != 'undefined' && element != null) {
                 display.removeChild(element);
                 element = document.createElement('numDisplay');
@@ -49,14 +61,24 @@ btnInts.forEach((btnInt) => {
                 element.textContent = string1; 
                 display.appendChild(element);
             }
-            if (btnInt.id === '.') {
-                return string1,
-                decimalPushed = 'true';
+            
+            if (btnIntId === '.') {
+                return string1, decimal1Pushed = 'true';
             } else {
-            return string1; } 
+            return string1;
+            }} } else {
+
+            //Checks if there is already a decimal point.
+            if (btnIntId === '.' && decimal2Pushed === 'true') {
+                console.log("decimal 2 is working");
+            return string1, decimal2Pushed = 'true';
             } else {
+        //Inputs the second number of the equation.
+
         array2.push(btnInt.id);
         string2 = array2.join('');
+
+        //Displays the second number
         if(typeof(element) != 'undefined' && element != null) {
             display.removeChild(element);
             element = document.createElement('numDisplay');
@@ -67,12 +89,15 @@ btnInts.forEach((btnInt) => {
             element.textContent = string1 + ' ' + symbol + ' ' + string2;  
             display.appendChild(element);
         }
-        console.log('btnInt ' + btnInt.id);
-        return string2;
-    } }
+        if (btnIntId === '.') {
+            return string2, decimal2Pushed = 'true';
+        } else {
+        return string2; }
+    } }}
     });
 });
 
+//Button function for the operand buttons. 
 btnOperands.forEach((btnOperand) => {
     btnOperand.addEventListener ('click', () => {
             operand = btnOperand.id;
@@ -84,7 +109,8 @@ btnOperands.forEach((btnOperand) => {
                 symbol = '*';
             } else if (operand === 'divide') {
                 symbol = '/';
-            } else { symbol = ' '}
+            } else if (operand === 'exponent') { symbol = '^'} 
+            else {symbol = ''}
 
             if(typeof(element) != 'undefined' && element != null) {
                 display.removeChild(element);
@@ -103,45 +129,50 @@ btnOperands.forEach((btnOperand) => {
 equal.addEventListener('click', () => {
     if (equalPushed === 'true' ) {
         return string1 = total,
-    //num1 = '',
-   // array2 = [],
-    //string2 = '',
-   // num2 = '',
+    num1 = '',
+    array2 = [],
+    string2 = '',
+    num2 = '',
     array1 = [],
+    decimal1Pushed = '',
+    decimal2Pushed = '',
+    btnIntId = '',
+    symbol = '',
     equalPushed = 'true';
     } else {
-    num1 = parseInt(string1);
-    num2 = parseInt(string2);
+    num1 = parseFloat(string1);
+    num2 = parseFloat(string2);
     if (operand === 'plus') {
     total = (num1 + num2);
-    console.log('num1: ' + num1 + ' ' + '+' + ' ' + 'num2: ' + num2 + ' ' + '=' + ' ' + total);
+
     } else if (operand === 'minus') {
     total = (num1 - num2);
-    console.log('num1: ' + num1 + ' ' + '-' + ' ' + 'num2: ' + num2 + ' ' + '=' + ' ' + total);
     } else if (operand === 'multiply') {
         total = (num1 * num2);
-        console.log('num1: ' + num1 + ' ' + 'x' + ' ' + 'num2: ' + num2 + ' ' + '=' + ' ' + total);
     } else if (operand === 'divide') {
         total = (num1 / num2);
-        console.log('num1: ' + num1 + ' ' + '/' + ' ' + 'num2: ' + num2 + ' ' + '=' + ' ' + total); 
+    } else if (operand === 'exponent') {
+        total = (num1 ** num2);
     } 
     if(typeof(element) != 'undefined' && element != null) {
         display.removeChild(element);
         element = document.createElement('numDisplay');
-        element.textContent = string1 + ' ' + symbol + ' ' + string2 + ' ' + '=' + ' ' +  total; 
         display.appendChild(element);
     } else {
         element = document.createElement('numDisplay');
-        element.textContent = string1 + ' ' + symbol + ' ' + string2 + ' ' + '=' + ' ' +  total; 
         display.appendChild(element);
     } 
     return  string1 = total,
-   // num1 = '',
-    // array2 = [],
+    num1 = '',
+    array2 = [],
     string2 = '',
     num2 = '',
     array1 = [],
     equalPushed = 'true',
+    decimal1Pushed = '',
+    decimal2Pushed = '',
+    btnIntId = '',
+    symbol = '',
     total = 0;
 }
 });
@@ -149,7 +180,8 @@ equal.addEventListener('click', () => {
 clear.addEventListener('click', () => 
     {
     console.clear();
-    display.removeChild(element);
+    if(typeof(element) != 'undefined' && element != null) {
+    display.removeChild(element);}
     return string1 = '',
     num1 = '',
     array2 = [],
@@ -157,6 +189,10 @@ clear.addEventListener('click', () =>
     num2 = '',
     operand = '', 
     equalPushed = '',
+    decimal1Pushed = '',
+    decimal2Pushed = '',
+    btnIntId = '',
+    symbol = '',
     element = document.getElementById('numDisplay'),
     total = 0;
     
