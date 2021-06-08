@@ -126,25 +126,30 @@ btnOperands.forEach((btnOperand) => {
         });
     });
 
+    //Button function for the equal button.
 equal.addEventListener('click', () => {
-    if (equalPushed === 'true' ) {
+    if (equalPushed === 'true') {
+        console.log("String1 " + string1);
         return string1 = total,
-    num1 = '',
+   num1 = '',
     array2 = [],
     string2 = '',
     num2 = '',
-    array1 = [],
+    //array1 = [],
     decimal1Pushed = '',
     decimal2Pushed = '',
     btnIntId = '',
-    symbol = '',
+    symbol = '', 
     equalPushed = 'true';
+    } else if (string2 === '') {
+        return string2 = '';
     } else {
+    console.log('Second equal option');
     num1 = parseFloat(string1);
     num2 = parseFloat(string2);
+    
     if (operand === 'plus') {
     total = (num1 + num2);
-
     } else if (operand === 'minus') {
     total = (num1 - num2);
     } else if (operand === 'multiply') {
@@ -157,9 +162,11 @@ equal.addEventListener('click', () => {
     if(typeof(element) != 'undefined' && element != null) {
         display.removeChild(element);
         element = document.createElement('numDisplay');
+        element.textContent = string1 + ' ' + symbol + ' ' + string2 + ' ' + '=' + ' ' + total; 
         display.appendChild(element);
     } else {
         element = document.createElement('numDisplay');
+        element.textContent = string1 + ' ' + symbol + ' ' + string2 + ' ' + '=' + ' ' + total;
         display.appendChild(element);
     } 
     return  string1 = total,
@@ -173,7 +180,7 @@ equal.addEventListener('click', () => {
     decimal2Pushed = '',
     btnIntId = '',
     symbol = '',
-    total = 0;
+    total = '';
 }
 });
 
