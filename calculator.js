@@ -16,27 +16,23 @@ let array1 = [],
     btnInts = document.querySelectorAll('btnInt'),
     btnOperands = document.querySelectorAll('btnOperand'),
     element = document.getElementById('numDisplay'),
-    equalPushed = '',
     decimal1Pushed = '',
     decimal2Pushed = '',
+    equalPushed = '',
     btnIntId = '',
     symbol = '',
     clear = document.querySelector('#clear');
+
 //Functions
 
-
-
-//Button function for the numbers and decimal point.
+    //Button function for the numbers and decimal point.
 btnInts.forEach((btnInt) => {
     btnInt.addEventListener ('click', () => {
     btnIntId = btnInt.id;
-        
-            //Checks if there is a already a total and uses it for the first number in the equation.
-if (equalPushed === 'true') {
-    return array1 = [],
-    equalPushed = 'true';
-        } else {
-
+    if (equalPushed === 'true') {
+        return array1 = [],
+        equalPushed = 'true';
+            } else {
         //Inputs the first number of the equation.
         if (operand === '' || string1 === '') {
 
@@ -49,7 +45,6 @@ if (equalPushed === 'true') {
             array1.push(btnInt.id); 
             string1 = array1.join('');
             
-            
         //Displays the first number.
         if(typeof(element) != 'undefined' && element != null) {
                 display.removeChild(element);
@@ -61,7 +56,7 @@ if (equalPushed === 'true') {
                 element.textContent = string1; 
                 display.appendChild(element);
             }
-            
+            //Prevents mutliple decimal points.
             if (btnIntId === '.') {
                 return string1, decimal1Pushed = 'true';
             } else {
@@ -70,11 +65,10 @@ if (equalPushed === 'true') {
 
             //Checks if there is already a decimal point.
             if (btnIntId === '.' && decimal2Pushed === 'true') {
-                console.log("decimal 2 is working");
             return string1, decimal2Pushed = 'true';
-            } else {
-        //Inputs the second number of the equation.
-
+            } else if (operand !='') {
+        
+        //Inputs the second number of the equation.        
         array2.push(btnInt.id);
         string2 = array2.join('');
 
@@ -94,7 +88,7 @@ if (equalPushed === 'true') {
         } else {
         return string2; }
     } }}
-    });
+});
 });
 
 //Button function for the operand buttons. 
@@ -126,30 +120,17 @@ btnOperands.forEach((btnOperand) => {
         });
     });
 
-    //Button function for the equal button.
+    //Executes the equal key and the calculation.
 equal.addEventListener('click', () => {
-    if (equalPushed === 'true') {
-        console.log("String1 " + string1);
-        return string1 = total,
-   num1 = '',
-    array2 = [],
-    string2 = '',
-    num2 = '',
-    //array1 = [],
-    decimal1Pushed = '',
-    decimal2Pushed = '',
-    btnIntId = '',
-    symbol = '', 
-    equalPushed = 'true';
-    } else if (string2 === '') {
-        return string2 = '';
-    } else {
-    console.log('Second equal option');
+
+    //Checks fot make sure there is a valid equation to calculate.
+    if (string2 != '' && operand != '')  {
     num1 = parseFloat(string1);
     num2 = parseFloat(string2);
-    
     if (operand === 'plus') {
     total = (num1 + num2);
+
+    //Performs the calculation based on the operand used.
     } else if (operand === 'minus') {
     total = (num1 - num2);
     } else if (operand === 'multiply') {
@@ -159,38 +140,43 @@ equal.addEventListener('click', () => {
     } else if (operand === 'exponent') {
         total = (num1 ** num2);
     } 
+    //Displays the final product.
     if(typeof(element) != 'undefined' && element != null) {
         display.removeChild(element);
         element = document.createElement('numDisplay');
-        element.textContent = string1 + ' ' + symbol + ' ' + string2 + ' ' + '=' + ' ' + total; 
+        element.textContent = string1 + ' ' + symbol + ' ' + string2 + ' ' + "= " + total;
         display.appendChild(element);
     } else {
         element = document.createElement('numDisplay');
-        element.textContent = string1 + ' ' + symbol + ' ' + string2 + ' ' + '=' + ' ' + total;
+        element.textContent = string1 + ' ' + symbol + ' ' + string2 + ' ' + "= " + total;
         display.appendChild(element);
     } 
+
+    //Resets everything except string1 inherits the total.
     return  string1 = total,
     num1 = '',
     array2 = [],
     string2 = '',
     num2 = '',
     array1 = [],
-    equalPushed = 'true',
+    operand = '',
     decimal1Pushed = '',
     decimal2Pushed = '',
+    equalPushed = 'true',
     btnIntId = '',
     symbol = '',
-    total = '';
+    total = 0;
 }
 });
 
+//Clears the display and all elements.
 clear.addEventListener('click', () => 
     {
-    console.clear();
     if(typeof(element) != 'undefined' && element != null) {
     display.removeChild(element);}
     return string1 = '',
     num1 = '',
+    array1 = [],
     array2 = [],
     string2 = '',
     num2 = '',
@@ -206,13 +192,3 @@ clear.addEventListener('click', () =>
 })
 
 
-// Notes
-/***********************************************************
-3 * 6 = 18
-3 / 18 = 6
-
-
-
-
-
-***********************************************************/

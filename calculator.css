@@ -1,49 +1,52 @@
-.body {
-    background-color: black;
-    font-family: 'Courier New', Courier, monospace;
-    color: black;
-    
-}
+
 
 .container {
-    border: none;
-    border-radius: 20px;
-    display: grid;
-    grid-template-columns: 80px 80px 80px 80px 80px;
-    grid-template-rows: 80px 80px 80px 80px 80px;
+    max-width: 400px;
+    margin: 10vh auto 0 auto;
+    box-shadow: 0px 0px 43px 17px rgba(153, 153, 153, 1);
     background-color: orange;
     color: white;
-    justify-items: center;
-    align-items: center;
-    font-size:x-large;
-    width: 425px;
 }
 
-.btn {
-    background-color: rgb(21, 24, 212);
-    border: none;
-    border-radius: 10px;
+.buttons {
+    
     box-shadow: black 0 20px 30px;
-    padding: 1%;
     color: white;
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    position: relative;
-    top: 65px;
+    display: grid;
+    border-bottom: 1px solid #999;
+    border-left: 1px solid #999;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.btn:hover {
+.buttons > div {
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+}
+
+.button {
+    background-color: rgb(21, 24, 212);
+    border: 0.5px solid #999;
+    border-radius: 20%;
+    line-height: 100px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.button:hover {
     transition: 500ms;
     background-color: gold;
     color: black;
 }
 .display {
-    display: flex;
-    position: fixed;
+    text-align: right;
+    height: 70px;
+    min-width: 391px;
+    line-height: 70px;
+    padding: 16px 8px;
+    font-size: 25px;
     background-color: black;
-    height: 20px;
+    
     width: 335px;
     padding: 1%;
     left: 30px;
