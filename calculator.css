@@ -23,6 +23,22 @@
     border-right: 1px solid #999;
 }
 
+.operand {
+    background-color: rgb(74, 74, 75);
+    border: 0.5px solid #999;
+    border-radius: 20%;
+    line-height: 100px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.operand:hover {
+    transition: 500ms;
+    background-color: gold;
+    color: black;
+}
+
 .button {
     background-color: rgb(21, 24, 212);
     border: 0.5px solid #999;
@@ -37,6 +53,38 @@
     transition: 500ms;
     background-color: gold;
     color: black;
+}
+
+.auxilary {
+    background-color: rgb(168, 2, 2);
+    border: 0.5px solid #999;
+    border-radius: 20%;
+    line-height: 100px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.auxilary:hover {
+    transition: 500ms;
+    background-color: gold;
+    color: black;  
+}
+
+.equal {
+    background-color:  rgb(43, 42, 42);
+    border: 0.5px solid #999;
+    border-radius: 20%;
+    line-height: 100px;
+    text-align: center;
+    font-size: 25px;
+    cursor: pointer;  
+}
+
+.equal:hover {
+    transition: 500ms;
+    background-color: gold;
+    color: black; 
 }
 .display {
     text-align: right;
